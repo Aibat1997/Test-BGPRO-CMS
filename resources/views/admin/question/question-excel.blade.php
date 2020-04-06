@@ -30,6 +30,14 @@
                             </div>
                             @endif
                             <div class="box-body">
+                                <div class="form-group">
+                                    <label>Язык</label>
+                                    <select name="lang" id="">
+                                        <option value="kz">KZ</option>
+                                        <option value="ru">RU</option>
+                                        <option value="en">EN</option>
+                                    </select>
+                                </div>
                                 <div class="form-group"><br>
                                     <input type="file" name="q_file" />
                                 </div>

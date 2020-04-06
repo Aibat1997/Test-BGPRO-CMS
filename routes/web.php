@@ -3,9 +3,7 @@
 Route::middleware(['web'])->namespace('Admin')->prefix('admin')->group(function () {
     Route::resource('users', 'UsersController');
     Route::resource('role', 'RoleController');
-    Route::resource('news', 'NewsController');
-    Route::resource('programms', 'ProgrammController');
-    Route::resource('{programm}/tests', 'TestController');
+    Route::resource('tests', 'TestController');
     Route::resource('{test}/questions', 'QuestionController');
     Route::resource('{question}/answers', 'AnswerController');
     Route::get('{test}/questions/create/excel', 'QuestionController@createExcel');

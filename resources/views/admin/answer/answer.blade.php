@@ -44,7 +44,14 @@ td img{
                 @foreach ($answers as $key=>$value)
                 <tr>
                   <td>{{ $key+1 }}</td>
-                  <td>{{ $value->a_name_ru }}</td>
+                  {{-- @if(!is_null($value->a_name_ru))
+                    <td class="td-overflow">{!! $value->a_name_ru !!}</td>
+                  @elseif(!is_null($value->a_name_kz))
+                    <td class="td-overflow">{!! $value->a_name_kz !!}</td>
+                  @else
+                    <td class="td-overflow">{!! $value->a_name_en !!}</td>
+                  @endif --}}
+                  <td>{!! $value->a_name !!}</td>
                   <td>{{ $value->a_is_correct == 1 ? 'Да' : 'Нет' }}</td>
                   <td>{{ App\Http\Helpers::simpleDate($value->updated_at) }}</td>
                   <td>

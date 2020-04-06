@@ -10,14 +10,14 @@
                 </h3>
             </div>
             <div class="col-md-4 col-4 align-self-center text-right">
-                <a href="/admin/{{ $programm->p_id }}/tests" class="btn btn-danger">Назад</a>
+                <a href="/admin/tests" class="btn btn-danger">Назад</a>
             </div>
         </div>
         <div class="row">
             @if(empty($test))
-            <form class="col-lg-12 col-md-12 row" action="/admin/{{ $programm->p_id }}/tests" method="POST" enctype="multipart/form-data">
+            <form class="col-lg-12 col-md-12 row" action="/admin/tests" method="POST" enctype="multipart/form-data">
             @else
-            <form class="col-lg-12 col-md-12 row" action="/admin/{{ $programm->p_id }}/tests/{{ $test->t_id }}" method="POST" enctype="multipart/form-data">
+            <form class="col-lg-12 col-md-12 row" action="/admin/tests/{{ $test->t_id }}" method="POST" enctype="multipart/form-data">
                 @method('PUT') 
             @endif
                 @csrf
@@ -72,8 +72,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Попытки</label>
-                                <input type="number" class="form-control" name="t_attempts" value="{{ !empty($test) ? $test->t_attempts : old('t_attempts') }}"/>
+                                <label>Язык</label><br>
+                                <input class="form-check-input" id="ru" type="checkbox" value="ru"
+                                       name="t_lang[]" {{ (!empty($test) && strpos($test->t_lang, 'ru') !== false) ? 'checked' : "" }}>
+                                <label for="ru">Русский</label>
+                                <input class="form-check-input" id="kz" type="checkbox" value="kz"
+                                       name="t_lang[]" {{ (!empty($test) && strpos($test->t_lang, 'kz') !== false) ? 'checked' : "" }}>
+                                <label for="kz">Казахский</label>
+                                <input class="form-check-input" id="en" type="checkbox" value="en"
+                                       name="t_lang[]" {{ (!empty($test) && strpos($test->t_lang, 'en') !== false) ? 'checked' : "" }}>
+                                <label for="en">Английский</label>
                             </div>
                             <div class="form-group">
                                 <label>Сортировка</label>

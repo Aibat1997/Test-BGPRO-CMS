@@ -40,9 +40,10 @@ class AnswerController extends Controller
     {
         Answer::create([
             'a_question_id' => $question->q_id,
-            'a_name_ru' => $request->a_name_ru,
-            'a_name_kz' => $request->a_name_kz,
-            'a_name_en' => $request->a_name_en,
+            'a_name' => $request->a_name,
+            // 'a_name_ru' => $request->a_name_ru,
+            // 'a_name_kz' => $request->a_name_kz,
+            // 'a_name_en' => $request->a_name_en,
             'a_is_correct' => $request->a_is_correct
         ]);
 
@@ -81,9 +82,10 @@ class AnswerController extends Controller
     public function update(Request $request, Question $question, Answer $answer)
     {
         $answer->update([
-            'a_name_ru' => $request->a_name_ru,
-            'a_name_kz' => $request->a_name_kz,
-            'a_name_en' => $request->a_name_en,
+            'a_name' => $request->a_name,
+            // 'a_name_ru' => $request->a_name_ru,
+            // 'a_name_kz' => $request->a_name_kz,
+            // 'a_name_en' => $request->a_name_en,
             'a_is_correct' => $request->a_is_correct
         ]);
 

@@ -41,15 +41,17 @@ class QuestionController extends Controller
     public function store(Request $request, Test $test)
     {
         if ($request->hasFile('q_file')) {
-            Excel::import(new QuestionImport(['test_id'=> $test->t_id]), $request->file('q_file'));
+            Excel::import(new QuestionImport(['test_id' => $test->t_id, 'lang' => $request->lang]), $request->file('q_file'));
             return redirect('/admin/'.$test->t_id.'/questions');
         } 
 
         Question::create([
             'q_test_id' => $test->t_id,
-            'q_name_ru' => $request->q_name_ru,
-            'q_name_kz' => $request->q_name_kz,
-            'q_name_en' => $request->q_name_en
+            'q_name' => $request->q_name,
+            'q_lang' => $request->q_lang,
+            // 'q_name_ru' => $request->q_name_ru,
+            // 'q_name_kz' => $request->q_name_kz,
+            // 'q_name_en' => $request->q_name_en
         ]);
 
         return redirect('/admin/'.$test->t_id.'/questions');
@@ -87,9 +89,11 @@ class QuestionController extends Controller
     public function update(Request $request, Test $test, Question $question)
     {
         $question->update([
-            'q_name_ru' => $request->q_name_ru,
-            'q_name_kz' => $request->q_name_kz,
-            'q_name_en' => $request->q_name_en
+            'q_name' => $request->q_name,
+            'q_lang' => $request->q_lang,
+            // 'q_name_ru' => $request->q_name_ru,
+            // 'q_name_kz' => $request->q_name_kz,
+            // 'q_name_en' => $request->q_name_en
         ]);
 
         return redirect('/admin/'.$test->t_id.'/questions');

@@ -16,9 +16,11 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('q_id');
             $table->unsignedBigInteger('q_test_id');
-            $table->text('q_name_ru')->nullable();
-            $table->text('q_name_kz')->nullable();
-            $table->text('q_name_en')->nullable();
+            $table->text('q_name')->nullable();
+            $table->string('q_lang');
+            // $table->text('q_name_ru')->nullable();
+            // $table->text('q_name_kz')->nullable();
+            // $table->text('q_name_en')->nullable();
             $table->boolean('q_is_active')->default(true);
             $table->timestamps();
 

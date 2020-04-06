@@ -16,9 +16,10 @@ class CreateAnswersTable extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->bigIncrements('a_id');
             $table->unsignedBigInteger('a_question_id');
-            $table->text('a_name_ru')->nullable();
-            $table->text('a_name_kz')->nullable();
-            $table->text('a_name_en')->nullable();
+            $table->text('a_name')->nullable();
+            // $table->text('a_name_ru')->nullable();
+            // $table->text('a_name_kz')->nullable();
+            // $table->text('a_name_en')->nullable();
             $table->boolean('a_is_correct')->nullable()->default(false);
             $table->timestamps();
 

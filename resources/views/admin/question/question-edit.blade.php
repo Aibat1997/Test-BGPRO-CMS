@@ -34,7 +34,7 @@
                             </div>
                             @endif
                             <div class="box-body">
-                                <nav>
+                                {{-- <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
                                             href="#nav-home" role="tab" aria-controls="nav-home"
@@ -51,24 +51,36 @@
                                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                         aria-labelledby="nav-home-tab">
                                         <div class="form-group">
-                                            <label>Название (ru)</label>
-                                            <input type="text" class="form-control" name="q_name_ru" value="{{ !empty($question) ? $question->q_name_ru : old('q_name_ru') }}" />
+                                            <label>Вопрос(ru)</label>
+                                            <textarea id="editor" name="q_name_ru" required>{{ !empty($question) ? $question->q_name_ru : old('q_name_ru') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                         aria-labelledby="nav-profile-tab">
                                         <div class="form-group">
-                                            <label>Название (kz)</label>
-                                            <input type="text" class="form-control" name="q_name_kz" value="{{ !empty($question) ? $question->q_name_kz : old('q_name_kz') }}"/>
+                                            <label>Вопрос(kz)</label>
+                                            <textarea id="editor1" name="q_name_kz">{{ !empty($question) ? $question->q_name_kz : old('q_name_kz') }}</textarea>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-contact" role="tabpanel"
                                         aria-labelledby="nav-contact-tab">
                                         <div class="form-group">
-                                            <label>Название (en)</label>
-                                            <input type="text" class="form-control" name="q_name_en" value="{{ !empty($question) ? $question->q_name_en : old('q_name_en') }}"/>
+                                            <label>Вопрос(en)</label>
+                                            <textarea id="editor2" name="q_name_en">{{ !empty($question) ? $question->q_name_en : old('q_name_en') }}</textarea>
                                         </div>
                                     </div>
+                                </div> --}}
+                                <div class="form-group">
+                                    <label>Вопрос</label>
+                                    <textarea id="editor" name="q_name" required>{{ !empty($question) ? $question->q_name : old('q_name') }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Язык</label>
+                                    <select name="q_lang" id="">
+                                        <option value="kz">KZ</option>
+                                        <option value="ru">RU</option>
+                                        <option value="en">EN</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

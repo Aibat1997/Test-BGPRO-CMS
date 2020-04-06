@@ -42,18 +42,21 @@ var initSample = ( function() {
 		if ( wysiwygareaAvailable ) {
 			CKEDITOR.replace( 'editor', {
 				filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+				filebrowserImageUploadUrl: '/content_image?',
 				filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-				filebrowserUploadUrl: '/content_image'
+				filebrowserUploadUrl: '/content_image?'
 			});
 			CKEDITOR.replace( 'editor1', {
 				filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+				filebrowserImageUploadUrl: '/content_image?',
 				filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-				filebrowserUploadUrl: '/content_image'
+				filebrowserUploadUrl: '/content_image?'
 			});
 			CKEDITOR.replace( 'editor2', {
 				filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+				filebrowserImageUploadUrl: '/content_image?',
 				filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-				filebrowserUploadUrl: '/content_image'
+				filebrowserUploadUrl: '/content_image?'
 			});
 		} else {
 			editorElement.setAttribute( 'contenteditable', 'true' );

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Test;
-use App\Models\Programm;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -14,10 +13,10 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Programm $programm)
+    public function index()
     {
-        $tests = $programm->tests;
-        return view('admin.test.test', compact('programm', 'tests'));
+        $tests = Test::all();
+        return view('admin.test.test', compact('tests'));
     }
 
     /**
@@ -25,9 +24,9 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Programm $programm)
+    public function create()
     {
-        return view('admin.test.test-edit', compact('programm'));
+        return view('admin.test.test-edit');
     }
 
     /**
@@ -36,18 +35,22 @@ class TestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Programm $programm, Request $request)
+    public function store(Request $request)
     {
+        $lang = "";
+        foreach ($request->t_lang as $value) {
+            $lang .= $value;
+        }
+
         Test::create([
-            't_programm_id' => $programm->p_id,
             't_name_ru' => $request->t_name_ru,
             't_name_kz' => $request->t_name_kz,
             't_name_en' => $request->t_name_en,
-            't_attempts' => $request->t_attempts,
-            't_sort_num' => $request->t_sort_num
+            't_sort_num' => $request->t_sort_num,
+            't_lang' => $lang
         ]);
 
-        return redirect('/admin/'.$programm->p_id.'/tests');
+        return redirect('/admin/tests');
     }
 
     /**
@@ -67,9 +70,9 @@ class TestController extends Controller
      * @param  \App\Models\Test  $test
      * @return \Illuminate\Http\Response
      */
-    public function edit(Programm $programm, Test $test)
+    public function edit(Test $test)
     {
-        return view('admin.test.test-edit', compact('programm', 'test'));
+        return view('admin.test.test-edit', compact('test'));
     }
 
     /**
@@ -79,17 +82,22 @@ class TestController extends Controller
      * @param  \App\Models\Test  $test
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Programm $programm, Test $test)
+    public function update(Request $request, Test $test)
     {
+        $lang = "";
+        foreach ($request->t_lang as $value) {
+            $lang .= $value;
+        }
+
         $test->update([
             't_name_ru' => $request->t_name_ru,
             't_name_kz' => $request->t_name_kz,
             't_name_en' => $request->t_name_en,
-            't_attempts' => $request->t_attempts,
-            't_sort_num' => $request->t_sort_num
+            't_sort_num' => $request->t_sort_num,
+            't_lang' => $lang
         ]);
 
-        return redirect('/admin/'.$programm->p_id.'/tests');
+        return redirect('/admin/tests');
     }
 
     /**
@@ -98,7 +106,7 @@ class TestController extends Controller
      * @param  \App\Models\Test  $test
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Programm $programm, Test $test)
+    public function destroy(Test $test)
     {
         $test->delete();
     }

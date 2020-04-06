@@ -19,7 +19,7 @@ td img{
         </h3>
       </div>
       <div class="col-md-4 col-4 align-self-center text-right">
-        <a href="/admin/{{ $test->programm->p_id }}/tests" class="btn btn-danger">Назад</a>
+        <a href="/admin/tests" class="btn btn-danger">Назад</a>
         <a href="/admin/{{ $test->t_id }}/questions/create/excel" class="btn btn-warning">Добавить Excel файлом</a>
         <a href="/admin/{{ $test->t_id }}/questions/create" class="btn btn-success">Добавить</a>
       </div>
@@ -45,7 +45,14 @@ td img{
                 @foreach ($questions as $key=>$value)
                 <tr>
                   <td>{{ $key+1 }}</td>
-                  <td>{{ $value->q_name_ru }}</td>
+                  {{-- @if(!is_null($value->q_name_ru))
+                    <td class="td-overflow">{!! $value->q_name_ru !!}</td>
+                  @elseif(!is_null($value->q_name_kz))
+                    <td class="td-overflow">{!! $value->q_name_kz !!}</td>
+                  @else
+                    <td class="td-overflow">{!! $value->q_name_en !!}</td>
+                  @endif --}}
+                  <td class="td-overflow">{!! $value->q_name !!}</td>
                   <td>{{ App\Http\Helpers::simpleDate($value->updated_at) }}</td>
                   <td>
                     <a href="/admin/{{ $value->q_id }}/answers" class="btn btn-success">Перейти</a>

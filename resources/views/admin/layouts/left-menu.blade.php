@@ -3,10 +3,7 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li> 
-                    <a class="waves-effect waves-dark" href="/admin/programms" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Программы</span></a>
-                </li>
-                <li> 
-                    <a class="waves-effect waves-dark" href="/admin/news" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Новости</span></a>
+                    <a class="waves-effect waves-dark" href="/admin/tests" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Тесты</span></a>
                 </li>
                 <li> 
                     <a class="waves-effect waves-dark" href="/admin/users" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Пользователи</span></a>

@@ -19,8 +19,7 @@ td img{
         </h3>
       </div>
       <div class="col-md-4 col-4 align-self-center text-right">
-        <a href="/admin/programms" class="btn btn-danger">Назад</a>
-        <a href="/admin/{{ $programm->p_id }}/tests/create" class="btn btn-success">Добавить</a>
+        <a href="/admin/tests/create" class="btn btn-success">Добавить</a>
       </div>
     </div>
 
@@ -33,7 +32,6 @@ td img{
                 <tr style="border: 1px">
                   <th style="width: 30px">№</th>
                   <th>Название</th>
-                  <th>Попытки</th>
                   <th>Дата</th>
                   <th>Перейти к вопросам</th>
                   <th></th>
@@ -46,17 +44,16 @@ td img{
                 <tr>
                   <td>{{ $value->t_id }}</td>
                   <td>{{ $value->t_name_ru }}</td>
-                  <td>{{ $value->t_attempts }}</td>
                   <td>{{ App\Http\Helpers::simpleDate($value->updated_at) }}</td>
                   <td>
                     <a href="/admin/{{ $value->t_id }}/questions" class="btn btn-success">Перейти</a>
                   </td>
                   <td>
-                    <a href="javascript:void(0)" onclick="remove(this,'{{ $value->t_id }}','{{ $programm->p_id }}/tests')">
+                    <a href="javascript:void(0)" onclick="remove(this,'{{ $value->t_id }}','tests')">
                       <i class="fas fa-trash"></i>
                     </a>
                   </td>
-                  <td><a href="/admin/{{ $programm->p_id }}/tests/{{ $value->t_id }}/edit"><i class="fas fa-pen"></i></a></td>
+                  <td><a href="/admin/tests/{{ $value->t_id }}/edit"><i class="fas fa-pen"></i></a></td>
                 </tr>
                 @endforeach
               </tbody>

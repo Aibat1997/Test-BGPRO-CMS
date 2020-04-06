@@ -34,7 +34,7 @@
                             </div>
                             @endif
                             <div class="box-body">
-                                <nav>
+                                {{-- <nav>
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
                                             href="#nav-home" role="tab" aria-controls="nav-home"
@@ -69,6 +69,10 @@
                                             <input type="text" class="form-control" name="a_name_en" value="{{ !empty($answer) ? $answer->a_name_en : old('a_name_en') }}"/>
                                         </div>
                                     </div>
+                                </div> --}}
+                                <div class="form-group">
+                                    <label>Ответ</label>
+                                    <textarea id="editor" name="a_name" required>{{ !empty($answer) ? $answer->a_name : old('a_name') }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Правильный</label><br>

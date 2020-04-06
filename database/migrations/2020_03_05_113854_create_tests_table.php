@@ -15,15 +15,12 @@ class CreateTestsTable extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->bigIncrements('t_id');
-            $table->unsignedBigInteger('t_programm_id');
             $table->string('t_name_ru')->nullable();
             $table->string('t_name_kz')->nullable();
             $table->string('t_name_en')->nullable();
-            $table->integer('t_attempts')->unsigned()->default(0);
             $table->integer('t_sort_num')->unsigned()->default(0);
+            $table->string('t_lang')->nullable();
             $table->timestamps();
-
-            $table->foreign('t_programm_id')->references('p_id')->on('programms')->onDelete('cascade');
         });
     }
 
