@@ -73,6 +73,12 @@ class Helpers
         return $simple_date;
     }
 
+    public static function simpleDateWithTime($date)
+    {
+        $simple_date = date('d.m.Y H:i', strtotime($date));
+        return $simple_date;
+    }
+
     public static function storeImg($name, $disk_name, $request)
     {
         $image = $request->file($name);
@@ -138,5 +144,12 @@ class Helpers
         }
 
         return $result;
+    }
+
+    public static function shortDescription($text, $max)
+    {
+        $text_no_tags = strip_tags($text);
+        $short_text = substr($text_no_tags, 0, $max) . '...';
+        return $short_text;
     }
 }

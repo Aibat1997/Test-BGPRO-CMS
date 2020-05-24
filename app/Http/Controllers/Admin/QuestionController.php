@@ -42,7 +42,7 @@ class QuestionController extends Controller
     {
         if ($request->hasFile('q_file')) {
             Excel::import(new QuestionImport(['test_id' => $test->t_id, 'lang' => $request->lang]), $request->file('q_file'));
-            return redirect('/admin/'.$test->t_id.'/questions');
+            return redirect("/admin/$test->t_id/questions");
         } 
 
         Question::create([
@@ -54,7 +54,7 @@ class QuestionController extends Controller
             // 'q_name_en' => $request->q_name_en
         ]);
 
-        return redirect('/admin/'.$test->t_id.'/questions');
+        return redirect("/admin/$test->t_id/questions");
     }
 
     /**
@@ -96,7 +96,7 @@ class QuestionController extends Controller
             // 'q_name_en' => $request->q_name_en
         ]);
 
-        return redirect('/admin/'.$test->t_id.'/questions');
+        return redirect("/admin/$test->t_id/questions");
     }
 
     /**

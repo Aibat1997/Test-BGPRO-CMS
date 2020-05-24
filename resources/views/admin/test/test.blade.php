@@ -42,7 +42,7 @@ td img{
               <tbody>
                 @foreach ($tests as $value)
                 <tr>
-                  <td>{{ $value->t_id }}</td>
+                  <td>{{ $loop->iteration }}</td>
                   <td>{{ $value->t_name_ru }}</td>
                   <td>{{ App\Http\Helpers::simpleDate($value->updated_at) }}</td>
                   <td>

@@ -33,27 +33,25 @@ td img{
                   <th style="width: 30px">№</th>
                   <th>Фото</th>
                   <th>ФИО</th>
-                  <th>Логин</th>
-                  <th>Сбросить пароль</th>
+                  <th>Email</th>
                   <th></th>
-                  <th></th>
+                  {{-- <th></th> --}}
                 </tr>
               </thead>
 
               <tbody>
                 @foreach ($users as $value)
                 <tr>
-                  <td>{{ $value->user_id }}</td>
+                  <td>{{ $loop->iteration }}</td>
                   <td><img src="{{ $value->avatar }}" alt=""></td>
-                  <td>{{ $value->user_name_ru }}</td>
+                  <td>{{ $value->full_name }}</td>
                   <td>{{ $value->email }}</td>
-                  <td></td>
                   <td>
                     <a href="javascript:void(0)" onclick="remove(this,'{{ $value->user_id }}','users')">
                       <i class="fas fa-trash"></i>
                     </a>
                   </td>
-                  <td><i class="fas fa-pen"></i></td>
+                  {{-- <td><a href="/admin/users/{{ $value->user_id }}/edit"><i class="fas fa-pen"></i></a></td> --}}
                 </tr>
                 @endforeach
               </tbody>

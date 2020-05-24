@@ -43,7 +43,7 @@ td img{
               <tbody>
                 @foreach ($answers as $key=>$value)
                 <tr>
-                  <td>{{ $key+1 }}</td>
+                  <td>{{ $loop->iteration }}</td>
                   {{-- @if(!is_null($value->a_name_ru))
                     <td class="td-overflow">{!! $value->a_name_ru !!}</td>
                   @elseif(!is_null($value->a_name_kz))

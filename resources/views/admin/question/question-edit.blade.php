@@ -77,9 +77,9 @@
                                 <div class="form-group">
                                     <label>Язык</label>
                                     <select name="q_lang" id="">
-                                        <option value="kz">KZ</option>
-                                        <option value="ru">RU</option>
-                                        <option value="en">EN</option>
+                                        <option value="kz" {{ !empty($question) && $question->q_lang == 'kz' ? 'selected' : '' }}>KZ</option>
+                                        <option value="ru" {{ !empty($question) && $question->q_lang == 'ru' ? 'selected' : '' }}>RU</option>
+                                        <option value="en" {{ !empty($question) && $question->q_lang == 'en' ? 'selected' : '' }}>EN</option>
                                     </select>
                                 </div>
                             </div>

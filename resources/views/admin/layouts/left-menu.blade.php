@@ -8,6 +8,9 @@
                 <li> 
                     <a class="waves-effect waves-dark" href="/admin/users" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Пользователи</span></a>
                 </li>
+                <li> 
+                    <a class="waves-effect waves-dark" href="/admin/role" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Роль пользователей</span></a>
+                </li>
             </ul>
         </nav>
     </div>

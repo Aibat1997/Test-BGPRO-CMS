@@ -34,16 +34,12 @@
                             @endif
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label>ФИО(ru)</label>
-                                    <input type="text" class="form-control" name="user_name_ru" placeholder="" />
+                                    <label>Фамилия</label>
+                                    <input type="text" class="form-control" name="last_name" placeholder="" />
                                 </div>
                                 <div class="form-group">
-                                    <label>ФИО(kz)</label>
-                                    <input type="text" class="form-control" name="user_name_kz" placeholder="" />
-                                </div>
-                                <div class="form-group">
-                                    <label>ФИО(en)</label>
-                                    <input type="text" class="form-control" name="user_name_en" placeholder="" />
+                                    <label>Имя</label>
+                                    <input type="text" class="form-control" name="first_name" placeholder="" />
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
@@ -55,26 +51,10 @@
                                         placeholder="8 (000) 000-00-00" />
                                 </div>
                                 <div class="form-group">
-                                    <label>Дата рождения</label>
-                                    <input type="date" class="form-control" name="date_of_birth" max="2999-12-31"
-                                        placeholder="" />
-                                </div>
-                                <div class="form-group">
                                     <label>Роль</label>
                                     <select name="user_role_id" class="form-control">
                                         @include('admin.layouts.role')
                                     </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Пол</label><br>
-                                    <input type="radio" class="form-check-input" name="male" value="1" id="male">
-                                    <label class="form-check-label" for="male">
-                                        Муж
-                                    </label>
-                                    <input type="radio" class="form-check-input" name="male" value="0" id="female">
-                                    <label class="form-check-label" for="female">
-                                        Жен
-                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +65,7 @@
                         <div class="card-block">
                             <div class="box box-primary" style="padding: 30px; text-align: center">
                                 <div style="padding: 20px; border: 1px solid #c2e2f0">
-                                    <img class="image-src" id="blah" src="/media/default.jpg" style="width: 100%; " />
+                                    <img class="image-src" id="blah" src="/img/default-user.jpg" style="width: 100%; " />
                                 </div>
                                 <div style="background-color: #c2e2f0;height: 40px;margin: 0 auto;width: 2px;"></div>
                                 <label class="btn btn-primary" for="imgInp">

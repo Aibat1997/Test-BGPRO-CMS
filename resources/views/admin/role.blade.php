@@ -60,7 +60,7 @@
                   <form action="" method="POST" id="updateForm{{ $value->role_id }}">
                     @csrf
                     <input type="hidden" name="role_id" value="{{ $value->role_id }}">
-                    <td>{{ $key+1 }}</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td><input type="text" class="form-control" name="role_name_ru" value="{{ $value->role_name_ru }}" /></td>
                     <td><input type="text" class="form-control" name="role_name_kz" value="{{ $value->role_name_kz }}" /></td>
                     <td><input type="text" class="form-control" name="role_name_en" value="{{ $value->role_name_en }}" /></td>
@@ -89,7 +89,8 @@
   $(document).ready(function () {
     $('form').on('submit', function (e) {
       e.preventDefault();
-      sendAjaxForm(this.id, '/admin/role');
+      let id = $(this).attr('id');
+      sendAjaxForm(id, '/admin/role');
       return false;
     });
   });
